@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                git credentialsId: 'git_credentials', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven'       
+                git credentialsId: 'git_credentials', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven.git'       
             }
         }
         stage('build'){
