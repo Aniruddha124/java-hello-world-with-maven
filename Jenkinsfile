@@ -12,7 +12,7 @@ pipeline{
         stage('build'){
             steps{
                echo 'building the code....'
-               sh 'mvn clean'
+               sh 'mvn clean install'
             }
         }
         stage('compile'){
