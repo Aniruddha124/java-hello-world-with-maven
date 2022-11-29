@@ -9,12 +9,18 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/sreenivas449/java-hello-world-with-maven.git']]])
+                git credentialsId: 'git_credentials', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven'       
             }
         }
         stage('build'){
             steps{
-               bat 'mvn package'
+               echo 'building the code....'
+               bat 'mvn clean'
+            }
+        }
+        stage('compile'){
+            steps{
+                bat 'mvn compile'
             }
         }
     }
