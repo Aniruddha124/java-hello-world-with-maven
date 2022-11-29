@@ -6,7 +6,8 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                git credentialsId: 'git_credentials', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven.git'       
+//                 git credentialsId: 'git_credentials', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/Aniruddha124/java-hello-world-with-maven.git']]])
             }
         }
         stage('build'){
@@ -15,7 +16,7 @@ pipeline{
             }
             steps{
                echo 'building the code....'
-               sh 'mvn clean install'
+               sh 'mvn package'
             }
         }
 //         stage('compile'){
