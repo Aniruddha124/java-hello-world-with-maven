@@ -12,12 +12,12 @@ pipeline{
         stage('build'){
             steps{
                echo 'building the code....'
-               bat 'mvn clean'
+               sh 'mvn clean'
             }
         }
         stage('compile'){
             steps{
-                bat 'mvn compile'
+                sh 'mvn compile'
             }
         }
     }
