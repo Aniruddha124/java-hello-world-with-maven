@@ -10,15 +10,18 @@ pipeline{
             }
         }
         stage('build'){
+            environment{
+                PATH = "/C:/Program Files/Git/bin:$PATH"
+            }
             steps{
                echo 'building the code....'
-               bat 'mvn clean install'
+               sh 'mvn clean install'
             }
         }
-        stage('compile'){
-            steps{
-                bat 'mvn compile'
-            }
-        }
+//         stage('compile'){
+//             steps{
+//                 bat 'mvn compile'
+//             }
+//         }
     }
 }
